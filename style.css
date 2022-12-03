@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* animation: name duration timing-function delay iteration-count direction; */
+    animation: move 2s cubic-bezier(0.19, 1.82, 1, -0.15) 1 both;
+}
+
+@keyframes move {
+    0% {
+        left: 0%;
+        top: 0%;
+        transform: rotate(0deg);
+    }
+    25% {
+        left: 80%;
+        top: 0%;
+    }
+    50% {
+        left: 80%;
+        top: 70%;
+    }
+    75% {
+        left: 0%;
+        top: 70%;
+    }
+    100% {
+        top: 0%;
+        left: 0%;
+        transform: rotate(360deg);
+    }
+}
+
+/* @keyframes move {
+    from {
+        top: 10%;
+        left: 10%;
+    }
+    to {
+        top: 60%;
+        left: 60%;
+    }
+} */
+
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 0%;
+    height: 100%;
+    /* border-radius: 30px; */
+    background-color: rgb(76, 240, 68);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+button:hover::before {
+    width: 100%;
+}
+
+.container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.box1 {
+    /* margin: 20px; */
+    width: 100%;
+    height: 100%;
+    background-image: url(https://plus.unsplash.com/premium_photo-1663099950069-c55bc3128245?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1);
+}
+
+.container:hover .box1 {
+    transform: scale(1.2);
+}
+
+.container:hover button::before {
+    width: 100%;
+}
